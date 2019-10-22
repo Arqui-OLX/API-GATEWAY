@@ -4,14 +4,6 @@ import { makeExecutableSchema } from 'graphql-tools';
 
 import { mergeSchemas } from './utilities';
 
-import {
-	coursesMutations,
-	coursesQueries,
-	coursesTypeDef
-} from './courses/typeDefs';
-
-import coursesResolvers from './courses/resolvers';
-
 //IMAGES MICROSERVICE
 import {
 	imagesMutations,
@@ -25,15 +17,12 @@ import imagesResolvers from './images/resolvers';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		coursesTypeDef,
 		imagesTypeDef
 	],
 	[
-		coursesQueries,
 		imagesQueries
 	],
 	[
-		coursesMutations,
 		imagesMutations
 	]
 );
@@ -42,7 +31,6 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		coursesResolvers,
 		imagesResolvers
 	)
 });
