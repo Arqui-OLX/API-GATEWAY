@@ -27,4 +27,4 @@ const resolvers_images = {
 	}
 };
 
-export default resolvers;
+export default resolvers_images;

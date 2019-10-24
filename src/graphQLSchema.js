@@ -10,7 +10,7 @@ import {
 	imagesQueries,
 	imagesTypeDef
 } from './images/typeDefs';
-import resolvers_images from './images/resolver';
+import resolvers_images from './images/resolvers';
 
 
 //IMAGES MICROSERVICE
@@ -19,7 +19,7 @@ import {
 	postQueries,
 	postTypeDef,
 } from './posts/typeDefs';
-import resolvers_post from './posts/resolver';
+import resolvers_post from './posts/resolvers';
 
 //LOCATION MICROSERVICE
 import {
@@ -27,7 +27,7 @@ import {
 	locationQueries,
 	locationTypeDef,
 } from './location/typeDefs';
-import resolvers_location from './location/resolver';
+import resolvers_location from './location/resolvers';
 
 //PROFILE MICROSERVICE
 import {
@@ -35,15 +35,15 @@ import {
 	userQueries,
 	userTypeDef,
 } from './users/typeDefs';
-import resolvers_location from './users/resolver';
+import resolvers_user from './users/resolvers';
 
 //CATALOG MICROSERVICE
 import {
 	catalogMutations,
 	catalogQueries,
 	catalogTypeDef,
-} from './users/typeDefs';
-import resolvers_catalog from './catalog/resolver';
+} from './catalog/typeDefs';
+import resolvers_catalog from './catalog/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(

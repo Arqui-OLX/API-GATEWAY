@@ -24,7 +24,7 @@ type Vehiculos{
 }
 type Carros{
 	marca: String
-	anio: Int
+	year: Int
 	kilometraje: Int
 	combustible: String
 	color: String
@@ -40,6 +40,7 @@ type Motos{
 	cilindrada: String
 	tipoVendedor: String
 	precio: Precio
+	placa: String
 }
 type TelefonosTablets{
 	telefonos: Telefono
@@ -58,6 +59,7 @@ type Computadores{
 	portatiles: Portatiles
 }
 type ComputadorEscritorio{
+	marca: String
 	precio: Precio
 } 
 type Portatiles{
@@ -73,6 +75,7 @@ type Cocina{
 	precio: Precio
 }
 type Nevera{
+	marca: String
 	precio: Precio
 }
 type Precio{
@@ -120,22 +123,23 @@ input VehiculosInput{
 }
 input CarrosInput{
 	marca: String
-	anio: Int
+	year: Int
 	kilometraje: Int
 	combustible: String
 	color: String
 	transmision: String
 	placa: String
-	precio: PrecioInput
+	precio: PrecioInput!
 }
 input MotosInput{
 	marca: String
-	anio: Int
+	year: Int
 	kilometraje: Int
 	color: String
 	cilindrada: String
 	tipoVendedor: String
-	precio: PrecioInput
+	precio: PrecioInput!
+	placa: String
 }
 input TelefonosTabletsInput{
 	telefonos: TelefonoInput
@@ -143,22 +147,23 @@ input TelefonosTabletsInput{
 }
 input TelefonoInput{
 	marca: String
-	precio: PrecioInput
+	precio: PrecioInput!
 }
 input TabletInput{
 	marca: String
-	precio: PrecioInput
+	precio: PrecioInput!
 }
 input ComputadoresInput{
 	computadorEscritorio: ComputadorEscritorioInput
 	portatiles: PortatilesInput
 }
 input ComputadorEscritorioInput{
-	precio: PrecioInput
+	marca: String
+	precio: PrecioInput!
 } 
 input PortatilesInput{
 	marca: String
-	precio: PrecioInput
+	precio: PrecioInput!
 }
 input ElectrodomesticosInput{
 	cocinas: CocinaInput
@@ -166,14 +171,15 @@ input ElectrodomesticosInput{
 }
 input CocinaInput{
 	tipo: String
-	precio: PrecioInput
+	precio: PrecioInput!
 }
 input NeveraInput{
-	precio: PrecioInput
+	marca: String
+	precio: PrecioInput!
 }
 input PrecioInput{
-	valorPrecio: Float
-	tipoPago: String
+	valorPrecio: Float!
+	tipoPago: String!
 }
 input EmpleosInput{
 	buscarTrabajo: BuscarTrabajoInput
@@ -205,6 +211,7 @@ input  TransporteMudanzaInput{
 
 export const catalogQueries = `
 	allCatalogs: [Producto]!
+	catalogById(id: String!): Producto!
 `;
 
 export const catalogMutations = `
