@@ -1,10 +1,10 @@
-import { generalRequest, getRequest } from '../utilities';
+import { generalRequest} from '../utilities';
 import { url, port, entryPointAds, entryPointUsers } from './server';
 
 const URL_ADS_IMAGES = `http://${url}:${port}/${entryPointAds}`;
 const URL_USER_IMAGES = `http://${url}:${port}/${entryPointUsers}`;
 
-const resolvers = {
+const resolvers_images = {
 	Query: {
 		allAdImagesByAdId: (_, {ad_id}) =>
 			generalRequest(`${URL_ADS_IMAGES}/byid/${ad_id}`, 'GET'),
