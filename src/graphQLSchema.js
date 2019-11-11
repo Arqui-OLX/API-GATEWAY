@@ -13,7 +13,7 @@ import {
 import resolvers_images from './images/resolvers';
 
 
-//IMAGES MICROSERVICE
+//POST MICROSERVICE
 import {
 	postMutations,
 	postQueries,
@@ -29,13 +29,6 @@ import {
 } from './location/typeDefs';
 import resolvers_location from './location/resolvers';
 
-//PROFILE MICROSERVICE
-import {
-	userMutations,
-	userQueries,
-	userTypeDef,
-} from './users/typeDefs';
-import resolvers_user from './users/resolvers';
 
 //CATALOG MICROSERVICE
 import {
@@ -45,6 +38,15 @@ import {
 } from './catalog/typeDefs';
 import resolvers_catalog from './catalog/resolvers';
 
+
+//LOGIN MICROSERVICE
+import {
+	loginMutations,
+	loginQueries,
+	loginTypeDef
+} from './login/typeDefs'
+import resolvers_login from './login/resolvers'
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -53,21 +55,21 @@ const mergedTypeDefs = mergeSchemas(
 		locationTypeDef,
 		postTypeDef,
 		catalogTypeDef,
-		userTypeDef
+		loginTypeDef
 	],
 	[
 		imagesQueries,
 		locationQueries,
 		postQueries,
 		catalogQueries,
-		userQueries
+		loginQueries
 	],
 	[
 		imagesMutations,
 		locationMutations,
 		postMutations,
 		catalogMutations,
-		userMutations
+		loginMutations
 	]
 );
 
@@ -80,6 +82,6 @@ export default makeExecutableSchema({
 		resolvers_location,
 		resolvers_post,
 		resolvers_catalog,
-		resolvers_user
+		resolvers_login
 	)
 });
